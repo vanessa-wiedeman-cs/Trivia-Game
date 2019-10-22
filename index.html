@@ -1,4 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trivia Game</title>
 
+        <!-- Added link to the jQuery Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+        <!-- Added link to the .js file -->
+        <script src="assets/javascript/app.js"></script>
 
+        <!-- Added a link to Bootstrap-->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        />
 
+        <!-- Added a link to our external stylesheet-->
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+
+    <body style="background-image: url('assets/images/bgimage.png')">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Trivia Game</a>
+        </nav>
+
+        <div class="container mx-auto bg-secondary">
+            <div class="row"><br /><br /></div>
+            <div id="start" class="row mx-auto">
+                <button
+                    type="button"
+                    class="btn btn-outline-info bg-dark btn-lg btn-block"
+                >
+                    Start Game
+                </button>
+            </div>
+            <div id="time" class="row mx-auto">
+                <h1 class="mx-auto">Time Left:</h1>
+            </div>
+            <div id="q" class="row mx-auto">
+                <h1 class="mx-auto">Question</h1>
+            </div>
+            <div id="c1" class="row">
+                <h2 class="mx-auto">Choice 1</h2>
+            </div>
+            <div id="c2" class="row">
+                <h2 class="mx-auto">Choice 2</h2>
+            </div>
+            <div id="c3" class="row">
+                <h2 class="mx-auto">Choice 3</h2>
+            </div>
+            <div id="c4" class="row">
+                <h2 class="mx-auto">Choice 4</h2>
+            </div>
+            <div id="correct" class="row">
+                <h2 class="mx-auto">Correct:</h2>
+            </div>
+            <div id="wrong" class="row">
+                <h2 class="mx-auto">Wrong:</h2>
+            </div>
+            <div id="unanswered" class="row">
+                <h2 class="mx-auto">Unanswered:</h2>
+            </div>
+            <div class="row" id="gifs">
+                <img id="q1c" src="assets/images/q1c.gif" alt="pichu" />
+                <img id="q12" src="assets/images/q1w.gif" alt="pikasad" />
+                <img id="q2c" src="assets/images/q2c.gif" alt="hooh" />
+                <img id="q2w" src="assets/images/q2w.gif" alt="ashpokedex" />
+                <img id="q3c" src="assets/images/q3c.gif" alt="pokeballs" />
+                <img id="q3w" src="assets/images/q3w.gif" alt="pokedex" />
+            </div>
+            <div id="again" class="row mx-auto">
+                <button
+                    type="button"
+                    class="btn btn-outline-info bg-dark btn-lg btn-block"
+                >
+                    Try Again?
+                </button>
+            </div>
+            <div class="row"><br /><br /></div>
+        </div>
+    </body>
+</html>
