@@ -33,6 +33,40 @@ var test = 0;
 //Document read functions
 $(document).ready(function() {
     $("#game").on("click", function() {
-
+        game();
     });
 });
+
+function game() {
+    var question = 0;
+
+    if (question < 10) {
+        $("#q").html("<h1 class='mx-auto'>" + quiz[question][0] + "</h1>");
+        $("#c1").html(
+            "<button type='button' class='btn btn-info btn-lg btn-block'>" +
+                quiz[question][1] +
+                "</button>"
+        );
+        $("#c2").html(
+            "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark'>" +
+                quiz[question][2] +
+                "</button>"
+        );
+        $("#c3").html(
+            "<button type='button' class='btn btn-info btn-lg btn-block'>" +
+                quiz[question][3] +
+                "</button>"
+        );
+        $("#c4").html(
+            "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark'>" +
+                quiz[question][4] +
+                "</button>"
+        );
+        $("#q").show();
+        $("#c1").show();
+        $("#c2").show();
+        $("#c3").show();
+        $("#c4").show();
+        $("#game").hide();
+    }
+}
