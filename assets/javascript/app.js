@@ -29,6 +29,7 @@ var quiz = [
 ];
 
 var test = 0;
+var timeLeft = 40;
 
 //Document read functions
 $(document).ready(function() {
@@ -68,5 +69,15 @@ function game() {
         $("#c3").show();
         $("#c4").show();
         $("#game").hide();
+        $("#time").show();
+        for(x=1; x < 40; x++){
+            setTimeout(displayTime, 1000 * x);
+        }
     }
+}
+
+function displayTime(){
+    
+    $("#time").html("<h1 class='mx-auto'>Time Left:"+(timeLeft)+"</h1>");
+    this.timeLeft--;
 }
