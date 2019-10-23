@@ -28,13 +28,34 @@ var quiz = [
     ],
 ];
 
-var test = 0;
+var timer;
 var timeLeft = 40;
+var next = false;
 
 //Document read functions
 $(document).ready(function() {
     $("#game").on("click", function() {
         game();
+    });
+});
+$(document).ready(function() {
+    $("#c1").on("click", function() {
+       
+    });
+});
+$(document).ready(function() {
+    $("#c2").on("click", function() {
+        this.next = true;
+    });
+});
+$(document).ready(function() {
+    $("#c3").on("click", function() {
+        this.next = true;
+    });
+});
+$(document).ready(function() {
+    $("#c4").on("click", function() {
+        this.next = true;
     });
 });
 
@@ -70,14 +91,22 @@ function game() {
         $("#c4").show();
         $("#game").hide();
         $("#time").show();
-        for(x=1; x < 40; x++){
-            setTimeout(displayTime, 1000 * x);
-        }
+
+        startTimer();
+
     }
 }
 
-function displayTime(){
-    
-    $("#time").html("<h1 class='mx-auto'>Time Left:"+(timeLeft)+"</h1>");
+function timeLeft() {
+    alert("timer");
+    $("#time").html("<h1 class='mx-auto'>Time Left:" + timeLeft + "</h1>");
+    this.timer = setTimeout(displayTime, 1000);
     this.timeLeft--;
+    
+}
+function startTimer() {
+    alert(this.timeLeft);
+    if(this.timeLeft != 0) {
+        timeLeft();
+    }
 }
