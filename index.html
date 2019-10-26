@@ -27,13 +27,15 @@
         </nav>
 
         <div class="container mx-auto bg-secondary">
-            <div class="row"><br /><br /></div>
+        <div class="mx-auto" style="min-height: 300px;">
+            <div class="row mx-auto"><br /><br /></div>
             <div class="row mx-auto">
                 <button
                     id="game"
                     type="button"
-                    class="btn btn-danger bg-dark btn btn-outline-info btn-lg btn-block"
-                >
+                    class="btn btn-danger bg-dark btn btn-outline-info btn-block mx-auto"
+                    style="min-height: 150px; font-size: 40px;"
+                    >
                     Start Game
                 </button>
             </div>
@@ -66,38 +68,52 @@
             <div id="unanswered" class="row" style="display: none;">
                 <h2 class="mx-auto">Unanswered:</h2>
             </div>
-            <div class="row" id="gifs">
+            <div class="row">
+                <h2 class="mx-auto" id="answerRight" style="display: none;">
+                    Yeah that's right!
+                </h2>
+                <h2 class="mx-auto" id="answerWrong" style="display: none;">
+                    Sorry You're Wrong!
+                </h2>
+            </div>
+            <div class="row mx-auto" id="gifs">
                 <img
+                    class="mx-auto"
                     id="qc1"
                     src="assets/images/q1c.gif"
                     alt="pichu"
                     style="display: none;"
                 />
                 <img
+                    class="mx-auto"
                     id="qw1"
                     src="assets/images/q1w.gif"
                     alt="pikasad"
                     style="display: none;"
                 />
                 <img
+                    class="mx-auto"
                     id="qc2"
                     src="assets/images/q2c.gif"
                     alt="hooh"
                     style="display: none;"
                 />
                 <img
+                    class="mx-auto"
                     id="qw2"
                     src="assets/images/q2w.gif"
                     alt="ashpokedex"
                     style="display: none;"
                 />
                 <img
+                    class="mx-auto"
                     id="qc3"
                     src="assets/images/q3c.gif"
                     alt="pokeballs"
                     style="display: none;"
                 />
                 <img
+                    class="mx-auto"
                     id="qw3"
                     src="assets/images/q3w.gif"
                     alt="pokedex"
@@ -114,6 +130,7 @@
                 </button>
             </div>
             <div class="row"><br /><br /></div>
+            </div>
         </div>
     </body>
 </html>

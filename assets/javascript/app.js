@@ -126,8 +126,10 @@ function playAgain() {
 //Displays if write or wrong
 function gifDisplay(x) {
     if (x) {
+        $("#answerRight").show();
         $("#qc" + this.question).show();
     } else {
+        $("#answerWrong").show();
         $("#qw" + this.question).show();
     }
     $("#q").hide();
@@ -138,8 +140,10 @@ function gifDisplay(x) {
 }
 function hideGif() {
     if (this.isCorrect) {
+        $("#answerRight").hide();
         $("#qc" + this.question).hide();
     } else {
+        $("#answerWrong").hide();
         $("#qw" + this.question).hide();
     }
 }
