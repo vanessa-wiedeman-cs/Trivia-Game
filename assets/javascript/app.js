@@ -86,11 +86,8 @@ function game(x) {
     answer(x);
 
     if (results) {
-        printResults();
+        setTimeout(printResults, 1000 * 3);
     }
-
-    //update question # last
-    this.question++;
 }
 
 /*Answer function takes in x (user choice) and totals right and wrong answers
@@ -141,9 +138,9 @@ function gifDisplay(x) {
 }
 function hideGif() {
     if (this.isCorrect) {
-        $("#qc" + (this.question - 1)).hide();
+        $("#qc" + this.question).hide();
     } else {
-        $("#qw" + (this.question - 1)).hide();
+        $("#qw" + this.question).hide();
     }
 }
 
@@ -180,6 +177,8 @@ function printQuestion() {
     $("#c3").show();
     $("#c4").show();
     $("#game").hide();
+
+    this.question++;
 }
 
 /*Show/hides () all other info and only shows the 
