@@ -36,6 +36,7 @@ var results = false;
 var question = 0;
 var correct = 0;
 var wrong = 0;
+var isCorrect = true;
 
 //Document read functions
 $(document).ready(function() {
@@ -74,8 +75,9 @@ $(document).ready(function() {
   Displays the results of quiz at the end of game.
 */
 function game(x) {
-    if (this.question < 3) {
+    if (this.question < 1) {
         printQuestion();
+        //startTimer();
     }
     if (this.question == 3) {
         results = true;
@@ -91,12 +93,21 @@ function game(x) {
     this.question++;
 }
 
-/*Answer function takes in x (user choice) and totals right and wrong answers*/
+/*Answer function takes in x (user choice) and totals right and wrong answers
+Passes a true/false to display gif and then calls printQuestion after 3 seconds.*/
 function answer(x) {
     if (x != 0) {
-        //minus one to correct indexing
-        if (answerKey[this.question - 1][x] == 1) this.correct++;
-        if (answerKey[this.question - 1][x] == 0) this.wrong++;
+        if (answerKey[this.question - 1][x] == 1) {
+            this.correct++;
+            this.isCorrect = true;
+        }
+        if (answerKey[this.question - 1][x] == 0) {
+            this.wrong++;
+            this.isCorrect = false;
+        }
+        gifDisplay(this.isCorrect);
+        setTimeout(hideGif, 1000 * 3);
+        setTimeout(printQuestion, 1000 * 3);
     }
 }
 
@@ -113,10 +124,32 @@ function playAgain() {
     $("#again").hide();
 
     game(0);
-
-
 }
 
+//Displays if write or wrong
+function gifDisplay(x) {
+    if (x) {
+        $("#qc" + this.question).show();
+    } else {
+        $("#qw" + this.question).show();
+    }
+    $("#q").hide();
+    $("#c1").hide();
+    $("#c2").hide();
+    $("#c3").hide();
+    $("#c4").hide();
+}
+function hideGif() {
+    if (this.isCorrect) {
+        $("#qc" + (this.question - 1)).hide();
+    } else {
+        $("#qw" + (this.question - 1)).hide();
+    }
+}
+
+/*Show/hides () all other info and only shows the 
+next questions and answers.
+*/
 function printQuestion() {
     //update html
     $("#q").html("<h1 class='mx-auto'>" + quiz[this.question][0] + "</h1>");
@@ -140,7 +173,7 @@ function printQuestion() {
             quiz[this.question][4] +
             "</button>"
     );
-    
+
     $("#q").show();
     $("#c1").show();
     $("#c2").show();
@@ -149,6 +182,9 @@ function printQuestion() {
     $("#game").hide();
 }
 
+/*Show/hides () all other info and only shows the 
+results.
+*/
 function printResults() {
     $("#q").hide();
     $("#c1").hide();
@@ -165,18 +201,15 @@ function printResults() {
     $("#again").show();
 }
 
-/*My broken timer
-
-function timeLeft() {
+/*function timeLeft() {
     alert("timer");
     $("#time").html("<h1 class='mx-auto'>Time Left:" + timeLeft + "</h1>");
-    this.timer = setTimeout(displayTime, 1000);
     this.timeLeft--;
-    
 }
 function startTimer() {
     alert(this.timeLeft);
-    if(this.timeLeft != 0) {
+    this.timer = setTimeout(timeLeft, 1000);
+    if (this.timeLeft != 0) {
         timeLeft();
     }
 }
