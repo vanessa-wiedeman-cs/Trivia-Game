@@ -1,7 +1,6 @@
 /*Javascript Header
 Description: In this program we will be using setTimeout() method to make a working 
-trivia game. 
-*/
+trivia game. */
 
 //variables
 var quiz = [
@@ -31,7 +30,7 @@ var quiz = [
 var answerKey = [[0, 0, 1, 0, 0], [0, 0, 0, 0, 1], [0, 1, 0, 0, 0]];
 
 var timer;
-var timeLeft = 40;
+var seconds = 40;
 var results = false;
 var question = 0;
 var correct = 0;
@@ -152,7 +151,7 @@ function hideGif() {
 next questions and answers.
 */
 function printQuestion() {
-    //update html
+    //update html   
     $("#q").html("<h1 class='mx-auto'>" + quiz[this.question][0] + "</h1>");
     $("#c1").html(
         "<button type='button' class='btn btn-info btn-lg btn-block'>" +
@@ -174,7 +173,8 @@ function printQuestion() {
             quiz[this.question][4] +
             "</button>"
     );
-
+    
+    $("#time").show();
     $("#q").show();
     $("#c1").show();
     $("#c2").show();
@@ -183,7 +183,23 @@ function printQuestion() {
     $("#game").hide();
 
     this.question++;
+    timerLeft();
 }
+
+function timeLeft() {
+    this.timer = setTimeout(timeLeft(), 1000);
+    $("#time").html("<h1 class='mx-auto'>Time Left:" + this.seconds + "</h1>");
+    this.seconds--;
+
+    if(this.seconds == 0)
+    {
+        stopTimer();
+    }
+  }
+
+function stopTimer() {
+    clearTimeout(this.timer);
+  }
 
 /*Show/hides () all other info and only shows the 
 results.
@@ -203,17 +219,3 @@ function printResults() {
     $("#playagain").show();
     $("#again").show();
 }
-
-/*function timeLeft() {
-    alert("timer");
-    $("#time").html("<h1 class='mx-auto'>Time Left:" + timeLeft + "</h1>");
-    this.timeLeft--;
-}
-function startTimer() {
-    alert(this.timeLeft);
-    this.timer = setTimeout(timeLeft, 1000);
-    if (this.timeLeft != 0) {
-        timeLeft();
-    }
-}
-*/
