@@ -163,6 +163,7 @@ function answer(x) {
     }
 }
 
+//starts quiz again
 function playAgain() {
     this.question = 0;
     this.correct = 0;
@@ -193,6 +194,7 @@ function gifDisplay(x) {
     $("#c3").hide();
     $("#c4").hide();
 }
+//hides gif that was displayed
 function hideGif() {
     if (this.isCorrect) {
         $("#answerRight").hide();
@@ -242,6 +244,7 @@ function printQuestion() {
 
     this.question++;
 
+    //Timer for each question set to 20 seconds
     interval = setInterval(function () {
         var display = "Time Left: " + count;
         $('#timeValue').html(display);
@@ -251,6 +254,7 @@ function printQuestion() {
             clearInterval(interval);
             $('#timeValue').html("Out of Time!");
             notAnswered++;
+            //special case for when last question is unanswered
             if (question === 10)
                 printResults();
             else
