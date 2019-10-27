@@ -11,6 +11,7 @@ In this assignment, You'll create a Trivia game using JavaScript for the logic a
 -Style page as you want
 </pre>
 # What was used (FUNctions commented in code) 
+<pre>
 -6 Buttons with .on Clicks
 -game() 
 -answer()
@@ -19,7 +20,7 @@ In this assignment, You'll create a Trivia game using JavaScript for the logic a
 -hideGif()
 -printQuestion()
 -printResults()
-
+</pre>
 # Trivia-Game Files
 <pre>
   -index.html
