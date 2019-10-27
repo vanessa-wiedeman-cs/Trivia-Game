@@ -40,33 +40,33 @@ var count = 40;
 var interval;
 
 //Document read functions
-$(document).ready(function() {
-    $("#game").on("click", function() {
+$(document).ready(function () {
+    $("#game").on("click", function () {
         game(0);
     });
 });
-$(document).ready(function() {
-    $("#c1").on("click", function() {
+$(document).ready(function () {
+    $("#c1").on("click", function () {
         game(1);
     });
 });
-$(document).ready(function() {
-    $("#c2").on("click", function() {
+$(document).ready(function () {
+    $("#c2").on("click", function () {
         game(2);
     });
 });
-$(document).ready(function() {
-    $("#c3").on("click", function() {
+$(document).ready(function () {
+    $("#c3").on("click", function () {
         game(3);
     });
 });
-$(document).ready(function() {
-    $("#c4").on("click", function() {
+$(document).ready(function () {
+    $("#c4").on("click", function () {
         game(4);
     });
 });
-$(document).ready(function() {
-    $("#again").on("click", function() {
+$(document).ready(function () {
+    $("#again").on("click", function () {
         playAgain();
     });
 });
@@ -107,8 +107,8 @@ function answer(x) {
             this.wrong++;
             this.isCorrect = false;
         }
-		clicked = true;
-		clearInterval(interval);
+        clicked = true;
+        clearInterval(interval);
         gifDisplay(this.isCorrect);
         setTimeout(hideGif, 1000 * 3);
         setTimeout(printQuestion, 1000 * 3);
@@ -163,25 +163,25 @@ function printQuestion() {
     $("#q").html("<h1 class='mx-auto'>" + quiz[this.question][0] + "</h1>");
     $("#c1").html(
         "<button type='button' class='btn btn-info btn-lg btn-block'>" +
-            quiz[this.question][1] +
-            "</button>"
+        quiz[this.question][1] +
+        "</button>"
     );
     $("#c2").html(
         "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark'>" +
-            quiz[this.question][2] +
-            "</button>"
+        quiz[this.question][2] +
+        "</button>"
     );
     $("#c3").html(
         "<button type='button' class='btn btn-info btn-lg btn-block'>" +
-            quiz[this.question][3] +
-            "</button>"
+        quiz[this.question][3] +
+        "</button>"
     );
     $("#c4").html(
         "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark'>" +
-            quiz[this.question][4] +
-            "</button>"
+        quiz[this.question][4] +
+        "</button>"
     );
-    
+
     $("#time").show();
     $("#q").show();
     $("#c1").show();
@@ -191,32 +191,22 @@ function printQuestion() {
     $("#game").hide();
 
     this.question++;
-    
-	interval = setInterval(function() { 
-		var display = "Time Left: " + count;
-		$('#timeValue').html(display);
-		count--; 
-		console.log(count);
-		if(count===0){
-			clearInterval(interval);
-			$('#timeValue').html("Ya fucked up kid");
-		}
-	
-	}, 1000);
-	count = 40;
-	
+
+    interval = setInterval(function () {
+        var display = "Time Left: " + count;
+        $('#timeValue').html(display);
+        count--;
+        console.log(count);
+        if (count === 0) {
+            clearInterval(interval);
+            $('#timeValue').html("Out of Time!");
+        }
+
+    }, 1000);
+    count = 40;
+
 }
 
-/*function timer() {
-	$('#timeValue').html = 'Time Left: ' + count;
-	count--;
-	console.log(count);
-	if(count===0){
-		clearInterval(interval);
-		$('#timeValue').html = "Ya fucked up kid";
-	
-	}
-}*/
 /*Show/hides () all other info and only shows the 
 results.
 */
