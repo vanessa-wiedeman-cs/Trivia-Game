@@ -25,19 +25,69 @@ var quiz = [
         "250+",
         "300+",
     ],
+    [
+        "What generation was Fairy Type introduced...",
+        "4",
+        "5",
+        "6",
+        "7",
+    ],
+    [
+        "Which one isn't a Dragon Type?...",
+        "Giratina",
+        "Gyarados",
+        "Charizard",
+        "Altaria",
+    ],
+    [
+        "How many pokeball types are in the core series?...",
+        "27",
+        "23",
+        "26",
+        "24",
+    ],
+    [
+        "Shaymin transform from Land Form to?...",
+        "Grass Form",
+        "Water Form",
+        "Flying Form",
+        "Sky Form",
+    ],
+    [
+        "Mewtwo is born from?...",
+        "The poke gods",
+        "Mew embryo",
+        "Test Tube",
+        "He was found",
+    ],
+    [
+        "Unwon created what legendary pokemon as an illusion in the movie?...",
+        "Raikou",
+        "Entei",
+        "Suicune",
+        "Unown",
+    ],
+    [
+        "The last Pokemon GBA game to be released was?...",
+        "Pokemon Emerald",
+        "Pokemon Ruby & Sapphire",
+        "Pokemon Myster Dungeon Red Rescue Team",
+        "Pokemon Pinball: Ruby & Sapphire",
+    ],
 ];
 
-var answerKey = [[0, 0, 1, 0, 0], [0, 0, 0, 0, 1], [0, 1, 0, 0, 0]];
+var answerKey = [[0, 0, 1, 0, 0], [0, 0, 0, 0, 1], [0, 1, 0, 0, 0], [0, 0, 0, 1, 0],
+[0, 0, 1, 0, 0], [0, 1, 0, 0, 0], [0, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 0, 1, 0, 0],
+[0, 0, 0, 1, 0]];
 
-var timer;
-var seconds = 40;
 var results = false;
 var question = 0;
 var correct = 0;
 var wrong = 0;
 var isCorrect = true;
-var count = 40;
+var count = 20;
 var interval;
+var notAnswered = 0;
 
 //Document read functions
 $(document).ready(function () {
@@ -78,9 +128,8 @@ $(document).ready(function () {
 function game(x) {
     if (this.question < 1) {
         printQuestion();
-        //startTimer();
     }
-    if (this.question == 3) {
+    if (this.question == 10) {
         results = true;
     }
     //update results before checking results
@@ -107,7 +156,6 @@ function answer(x) {
             this.wrong++;
             this.isCorrect = false;
         }
-        clicked = true;
         clearInterval(interval);
         gifDisplay(this.isCorrect);
         setTimeout(hideGif, 1000 * 3);
@@ -159,30 +207,32 @@ function hideGif() {
 next questions and answers.
 */
 function printQuestion() {
+    count = 20;
     //update html   
     $("#q").html("<h1 class='mx-auto'>" + quiz[this.question][0] + "</h1>");
     $("#c1").html(
-        "<button type='button' class='btn btn-info btn-lg btn-block'>" +
+        "<button type='button' class='btn btn-info btn-lg btn-block m-1'>" +
         quiz[this.question][1] +
         "</button>"
     );
     $("#c2").html(
-        "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark'>" +
+        "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark m-1'>" +
         quiz[this.question][2] +
         "</button>"
     );
     $("#c3").html(
-        "<button type='button' class='btn btn-info btn-lg btn-block'>" +
+        "<button type='button' class='btn btn-info btn-lg btn-block m-1'>" +
         quiz[this.question][3] +
         "</button>"
     );
     $("#c4").html(
-        "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark'>" +
+        "<button type='button' class='btn btn-outline-info btn-lg btn-block bg-dark m-1'>" +
         quiz[this.question][4] +
         "</button>"
     );
 
     $("#time").show();
+    $("#timeValue").show();
     $("#q").show();
     $("#c1").show();
     $("#c2").show();
@@ -200,10 +250,15 @@ function printQuestion() {
         if (count === 0) {
             clearInterval(interval);
             $('#timeValue').html("Out of Time!");
+            notAnswered++;
+            if (question === 10)
+                printResults();
+            else
+                printQuestion();
         }
 
     }, 1000);
-    count = 40;
+
 
 }
 
@@ -211,14 +266,17 @@ function printQuestion() {
 results.
 */
 function printResults() {
+    $("#timeValue").hide();
     $("#q").hide();
     $("#c1").hide();
     $("#c2").hide();
     $("#c3").hide();
     $("#c4").hide();
 
-    $("#correct").html("<h1>Correct: " + this.correct + "</h1>");
-    $("#wrong").html("<h1>Wrong: " + this.wrong + "</h1>");
+
+    $("#correct").html("<h1 class='mx-auto p-1'>Correct: " + correct + "</h1>");
+    $("#wrong").html("<h1 class='mx-auto p-1'>Wrong: " + wrong + "</h1>");
+    $("#unanswered").html("<h1 class='mx-auto p-1'>Unanswered: " + notAnswered + "</h1>");
     $("#correct").show();
     $("#wrong").show();
     $("#unanswered").show();

@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Trivia Game</title>
 
-        <!-- Added link to the jQuery Library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Game</title>
 
-        <!-- Added link to the .js file -->
-        <script src="assets/javascript/app.js"></script>
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <!-- Added a link to Bootstrap-->
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        />
+    <!-- Added link to the .js file -->
+    <script src="assets/javascript/app.js"></script>
 
-        <!-- Added a link to our external stylesheet-->
-        <link rel="stylesheet" href="assets/css/style.css" />
-    </head>
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 
-    <body style="background-image: url('assets/images/bgimage.png')">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Trivia Game</a>
-        </nav>
+    <!-- Added a link to our external stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-        <div class="container mx-auto bg-secondary">
-        <div class="mx-auto" style="min-height: 300px;">
+<body style="background-image: url('assets/images/bgimage.png')">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Trivia Game</a>
+    </nav>
+
+    <div class="container mx-auto bg-secondary">
+        <div class="mx-auto p-5" style="min-height: 300px;">
             <div class="row mx-auto"><br /><br /></div>
             <div class="row mx-auto">
-                <button
-                    id="game"
-                    type="button"
-                    class="btn btn-danger bg-dark btn btn-outline-info btn-block mx-auto"
-                    style="min-height: 150px; font-size: 40px;"
-                    >
+                <button id="game" type="button" class="btn btn-danger bg-dark btn btn-outline-info btn-block mx-auto"
+                    style="min-height: 150px; font-size: 40px;">
                     Start Game
                 </button>
             </div>
             <div id="time" class="row mx-auto" style="display: none;">
-                <h1 id="timeValue" class="mx-auto">Time Left:</h1>
+                <h1 id="timeValue" class="mx-auto">Time Left: 20</h1>
             </div>
             <div id="q" class="row mx-auto" style="display: none;">
                 <h1 class="mx-auto">Question</h1>
@@ -77,60 +71,36 @@
                 </h2>
             </div>
             <div class="row mx-auto" id="gifs">
-                <img
-                    class="mx-auto"
-                    id="qc1"
-                    src="assets/images/q1c.gif"
-                    alt="pichu"
-                    style="display: none;"
-                />
-                <img
-                    class="mx-auto"
-                    id="qw1"
-                    src="assets/images/q1w.gif"
-                    alt="pikasad"
-                    style="display: none;"
-                />
-                <img
-                    class="mx-auto"
-                    id="qc2"
-                    src="assets/images/q2c.gif"
-                    alt="hooh"
-                    style="display: none;"
-                />
-                <img
-                    class="mx-auto"
-                    id="qw2"
-                    src="assets/images/q2w.gif"
-                    alt="ashpokedex"
-                    style="display: none;"
-                />
-                <img
-                    class="mx-auto"
-                    id="qc3"
-                    src="assets/images/q3c.gif"
-                    alt="pokeballs"
-                    style="display: none;"
-                />
-                <img
-                    class="mx-auto"
-                    id="qw3"
-                    src="assets/images/q3w.gif"
-                    alt="pokedex"
-                    style="display: none;"
-                />
+                <img class="mx-auto" id="qc1" src="assets/images/q1c.gif" alt="pichu" style="display: none;" />
+                <img class="mx-auto" id="qw1" src="assets/images/q1w.gif" alt="pikasad" style="display: none;" />
+                <img class="mx-auto" id="qc2" src="assets/images/q2c.gif" alt="hooh" style="display: none;" />
+                <img class="mx-auto" id="qw2" src="assets/images/q2w.gif" alt="ashpokedex" style="display: none;" />
+                <img class="mx-auto" id="qc3" src="assets/images/q3c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw3" src="assets/images/q3w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc4" src="assets/images/q4c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw4" src="assets/images/q4w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc5" src="assets/images/q5c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw5" src="assets/images/q5w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc6" src="assets/images/q6c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw6" src="assets/images/q6w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc7" src="assets/images/q7c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw7" src="assets/images/q7w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc8" src="assets/images/q8c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw8" src="assets/images/q8w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc9" src="assets/images/q9c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw9" src="assets/images/q9w.gif" alt="pokedex" style="display: none;" />
+                <img class="mx-auto" id="qc10" src="assets/images/q10c.gif" alt="pokeballs" style="display: none;" />
+                <img class="mx-auto" id="qw10" src="assets/images/q10w.gif" alt="pokedex" style="display: none;" />
             </div>
             <div id="playagain" class="row mx-auto" style="display: none;">
-                <button
-                    id="again"
-                    type="button"
-                    class="btn btn-outline-info bg-dark btn-lg btn-block"
-                >
+                <button id="again" type="button" class="btn btn-danger bg-dark btn btn-outline-info btn-block mx-auto"
+                    style="min-height: 150px; font-size: 40px;">
                     Try Again?
                 </button>
             </div>
             <div class="row"><br /><br /></div>
-            </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
