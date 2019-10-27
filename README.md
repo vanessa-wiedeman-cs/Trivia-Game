@@ -10,8 +10,15 @@ In this assignment, You'll create a Trivia game using JavaScript for the logic a
 -Display results to the page (correct/wrong/unanswered)
 -Style page as you want
 </pre>
-# What was used
--Will update towards end of project
+# What was used (FUNctions commented in code) 
+-6 Buttons with .on Clicks
+-game() 
+-answer()
+-playAgain()
+-gifDisplay()
+-hideGif()
+-printQuestion()
+-printResults()
 
 # Trivia-Game Files
 <pre>
