@@ -36,6 +36,8 @@ var question = 0;
 var correct = 0;
 var wrong = 0;
 var isCorrect = true;
+var count = 40;
+var interval;
 
 //Document read functions
 $(document).ready(function() {
@@ -89,6 +91,10 @@ function game(x) {
     }
 }
 
+
+
+
+
 /*Answer function takes in x (user choice) and totals right and wrong answers
 Passes a true/false to display gif and then calls printQuestion after 3 seconds.*/
 function answer(x) {
@@ -101,6 +107,8 @@ function answer(x) {
             this.wrong++;
             this.isCorrect = false;
         }
+		clicked = true;
+		clearInterval(interval);
         gifDisplay(this.isCorrect);
         setTimeout(hideGif, 1000 * 3);
         setTimeout(printQuestion, 1000 * 3);
@@ -183,24 +191,32 @@ function printQuestion() {
     $("#game").hide();
 
     this.question++;
-    timerLeft();
+    
+	interval = setInterval(function() { 
+		var display = "Time Left: " + count;
+		$('#timeValue').html(display);
+		count--; 
+		console.log(count);
+		if(count===0){
+			clearInterval(interval);
+			$('#timeValue').html("Ya fucked up kid");
+		}
+	
+	}, 1000);
+	count = 40;
+	
 }
 
-function timeLeft() {
-    this.timer = setTimeout(timeLeft(), 1000);
-    $("#time").html("<h1 class='mx-auto'>Time Left:" + this.seconds + "</h1>");
-    this.seconds--;
-
-    if(this.seconds == 0)
-    {
-        stopTimer();
-    }
-  }
-
-function stopTimer() {
-    clearTimeout(this.timer);
-  }
-
+/*function timer() {
+	$('#timeValue').html = 'Time Left: ' + count;
+	count--;
+	console.log(count);
+	if(count===0){
+		clearInterval(interval);
+		$('#timeValue').html = "Ya fucked up kid";
+	
+	}
+}*/
 /*Show/hides () all other info and only shows the 
 results.
 */
