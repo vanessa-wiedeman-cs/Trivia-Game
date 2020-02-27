@@ -1,6 +1,6 @@
 # Trivia-Game
-Create a Trivia game using JavaScript for the logic and jQuery to manipulate HTML.
-Project link: https://vanessa-wiedeman-cs.github.io/Trivia-Game/ (Pokemon Themed for as it's one of my hobbies!)
+-Create a Trivia game using JavaScript for the logic and jQuery to manipulate HTML.
+-Project link: https://vanessa-wiedeman-cs.github.io/Trivia-Game/ (Pokemon Themed for as it's one of my hobbies!)
 
 # Goals of Project
 <pre>
